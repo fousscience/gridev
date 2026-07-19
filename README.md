@@ -2,7 +2,16 @@
 
 Site vitrine de l’ONG GRIDév (Groupe de Réflexion pour les Initiatives de Développement), organisation malienne basée à Gao.
 
-Stack : **Next.js 16** (App Router) · **Sanity** (CMS) · **Resend** (formulaire contact) · **Tailwind CSS 4** · déploiement prévu sur **Vercel**.
+Stack : **Next.js 16** (App Router) · **Sanity** (CMS) · **Resend** (formulaire contact) · **Tailwind CSS 4** · **Vercel**.
+
+## Documentation
+
+| Document | Public |
+|----------|--------|
+| [GUIDE_UTILISATION.md](GUIDE_UTILISATION.md) | Équipe ONG — publier du contenu (sans code) |
+| [GUIDE_ADMIN.md](GUIDE_ADMIN.md) | Référent technique — Studio, Resend, webhooks, déploiement |
+| [CAHIER_DES_CHARGES.md](CAHIER_DES_CHARGES.md) | Spécifications du projet |
+| [MISE_EN_PRODUCTION.md](MISE_EN_PRODUCTION.md) | Checklist mise en production |
 
 Sans projet Sanity ni clé Resend, le site fonctionne en local grâce aux contenus de repli (`src/lib/fallback.ts`).
 
@@ -44,7 +53,7 @@ Voir `.env.example`. Principales clés :
 | `SANITY_REVALIDATE_SECRET` | Secret webhook → `/api/revalidate` |
 | `RESEND_API_KEY` | Envoi email contact (sinon log serveur) |
 | `CONTACT_TO_EMAIL` / `CONTACT_FROM_EMAIL` | Destinataire / expéditeur |
-| `OPENROUTER_API_KEY` | Assistant chat (bouton Assistance) |
+| `OPENROUTER_API_KEY` | Assistante Sara (chat) |
 | `OPENROUTER_MODEL` | Modèle OpenRouter (défaut `openai/gpt-4o-mini`) |
 | `NEXT_PUBLIC_SITE_URL` | URL publique (sitemap, metadata) |
 

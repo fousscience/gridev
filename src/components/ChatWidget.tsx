@@ -5,7 +5,9 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 type Msg = { role: "user" | "assistant"; content: string };
 
 const WELCOME_TEXT =
-  "Bonjour — je suis l’assistant GRIDév. Posez vos questions sur notre mission, nos projets, les opportunités ou comment nous contacter.";
+  "Bonjour ! Je suis Sara, l’assistante virtuelle de GRIDév. Bienvenue sur notre site — en quoi puis-je vous aider ?";
+
+const SESSION_DISMISSED_KEY = "gridev-sara-dismissed";
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -19,11 +21,34 @@ export function ChatWidget() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    try {
+      if (sessionStorage.getItem(SESSION_DISMISSED_KEY) === "1") return;
+    } catch {
+      /* sessionStorage indisponible */
+    }
+
+    const timer = window.setTimeout(() => {
+      setOpen(true);
+    }, 1200);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     if (open) {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
       inputRef.current?.focus();
     }
   }, [open, messages, loading]);
+
+  function closeChat() {
+    setOpen(false);
+    try {
+      sessionStorage.setItem(SESSION_DISMISSED_KEY, "1");
+    } catch {
+      /* sessionStorage indisponible */
+    }
+  }
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -63,18 +88,18 @@ export function ChatWidget() {
       {open ? (
         <div
           id="gridev-chat"
-          className="flex h-[min(520px,70vh)] w-[min(380px,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface-elevated)] shadow-2xl"
+          className="animate-fade-up flex h-[min(520px,70vh)] w-[min(380px,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface-elevated)] shadow-2xl"
           role="dialog"
-          aria-label="Assistant GRIDév"
+          aria-label="Sara, assistante GRIDév"
         >
           <header className="flex items-center justify-between bg-[var(--brand-indigo)] px-4 py-3 text-white">
             <div>
-              <p className="font-display text-base font-semibold">Assistant GRIDév</p>
-              <p className="text-xs text-white/75">Questions sur l’ONG</p>
+              <p className="font-display text-base font-semibold">Sara</p>
+              <p className="text-xs text-white/75">Assistante GRIDév</p>
             </div>
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={closeChat}
               className="rounded-full px-2 py-1 text-lg leading-none hover:bg-white/15"
               aria-label="Fermer le chat"
             >
@@ -100,7 +125,7 @@ export function ChatWidget() {
               </div>
             ))}
             {loading ? (
-              <p className="text-xs text-[var(--brand-muted)]">L’assistant rédige…</p>
+              <p className="text-xs text-[var(--brand-muted)]">Sara rédige…</p>
             ) : null}
             {error ? (
               <p className="text-xs text-[var(--accent-red)]" role="alert">
@@ -136,12 +161,18 @@ export function ChatWidget() {
 
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (open) {
+            closeChat();
+          } else {
+            setOpen(true);
+          }
+        }}
         className="btn btn-primary shadow-lg"
         aria-expanded={open}
         aria-controls="gridev-chat"
       >
-        {open ? "Fermer" : "Assistance"}
+        {open ? "Fermer" : "Parler à Sara"}
       </button>
     </div>
   );
