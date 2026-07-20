@@ -46,6 +46,22 @@ Les Actualités, Projets et Opportunités sont des **listes** : vous pouvez en c
 
 ---
 
+## 3bis. Draft et Published — important
+
+Dans le Studio, vous voyez souvent deux vues :
+
+| Vue | Signification |
+|-----|----------------|
+| **Draft** (brouillon) | Ce que vous êtes en train de modifier — **pas encore** visible sur le site public si non publié |
+| **Published** (publié) | Ce qui est **en ligne** sur le site |
+
+**Règle d’or :** après vos modifications, cliquez toujours le bouton vert **Publish**.  
+Si vous restez seulement en *Draft*, le site ne change pas.
+
+Si un champ semble vide alors que le site affiche encore un texte : basculez sur **Published**, ou publiez votre brouillon après l’avoir rempli. Le site peut aussi afficher un **texte de secours** tant que le champ Sanity est vide — d’où l’intérêt de remplir puis Publish.
+
+---
+
 ## 4. Publier une actualité
 
 1. Menu **Actualités** → **Create** (ou bouton « Nouveau »).
@@ -99,13 +115,18 @@ Le texte d’introduction en haut de la page se modifie dans **Page Opportunité
 ## 7. Mot du Président et équipe
 
 1. Ouvrez **À propos / Identité**.
-2. Section **Mot du Président** :
+2. En haut du document, utilisez les onglets :
+   - **Mot du Président**
+   - **Équipe**
+   - Vision & mission / Organisation (le reste)
+3. Onglet **Mot du Président** :
    - Nom, fonction, message  
-   - Photo (Upload ou glisser-déposer)
-3. Section **Équipe** :
+   - Photo (Upload ou glisser-déposer) + texte alternatif
+4. Onglet **Équipe** :
+   - Introduction  
    - Ajoutez ou modifiez chaque membre (nom, fonction, bio courte, photo)
-4. **Publish**.
-5. Vérifiez sur le site : page **À propos**.
+5. Cliquez **Publish** (obligatoire pour mettre en ligne).
+6. Vérifiez sur le site : page **À propos** (rafraîchir après quelques secondes).
 
 Sans photo, le site affiche les **initiales** de la personne.
 

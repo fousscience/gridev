@@ -184,61 +184,30 @@ export const about = defineType({
   name: "about",
   title: "À propos / Identité",
   type: "document",
+  groups: [
+    { name: "president", title: "Mot du Président", default: true },
+    { name: "team", title: "Équipe" },
+    { name: "identity", title: "Vision & mission" },
+    { name: "org", title: "Organisation" },
+  ],
   fields: [
-    defineField({ name: "vision", title: "Vision", type: "text", rows: 8 }),
-    defineField({ name: "mission", title: "Mission", type: "text", rows: 8 }),
-    defineField({
-      name: "values",
-      title: "Valeurs",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            { name: "title", type: "string", title: "Titre" },
-            { name: "text", type: "text", title: "Texte", rows: 3 },
-          ],
-          preview: { select: { title: "title" } },
-        },
-      ],
-    }),
-    defineField({ name: "culture", title: "Culture", type: "text", rows: 5 }),
-    defineField({
-      name: "domains",
-      title: "Domaines d'intervention",
-      type: "array",
-      of: [{ type: "string" }],
-    }),
-    defineField({ name: "history", title: "Historique", type: "text", rows: 10 }),
-    defineField({ name: "globalObjective", title: "Objectif global", type: "text", rows: 5 }),
-    defineField({
-      name: "objectives",
-      title: "Axes / objectifs",
-      type: "array",
-      of: [{ type: "string" }],
-    }),
-    defineField({ name: "zones", title: "Zones d'intervention", type: "text", rows: 4 }),
-    defineField({
-      name: "structure",
-      title: "Structure",
-      type: "array",
-      of: [{ type: "string" }],
-    }),
-    defineField({
-      name: "partners",
-      title: "Partenaires",
-      type: "array",
-      of: [{ type: "string" }],
-    }),
     defineField({
       name: "president",
       title: "Mot du Président",
       type: "object",
+      group: "president",
+      description:
+        "Texte et photo affichés sur la page À propos. Remplissez puis cliquez Publish (pas seulement Draft).",
       fields: [
-        { name: "sectionTitle", type: "string", title: "Titre de section", initialValue: "Mot du Président" },
+        {
+          name: "sectionTitle",
+          type: "string",
+          title: "Titre de section",
+          initialValue: "Mot du Président",
+        },
         { name: "name", type: "string", title: "Nom" },
         { name: "role", type: "string", title: "Fonction", initialValue: "Président" },
-        { name: "message", type: "text", title: "Message", rows: 10 },
+        { name: "message", type: "text", title: "Message", rows: 12 },
         {
           name: "photo",
           type: "image",
@@ -253,11 +222,15 @@ export const about = defineType({
       title: "Introduction équipe",
       type: "text",
       rows: 3,
+      group: "team",
+      description: "Court paragraphe au-dessus de la grille des membres.",
     }),
     defineField({
       name: "team",
       title: "Équipe",
       type: "array",
+      group: "team",
+      description: "Ajoutez un membre par ligne. Uploadez une photo pour chacun.",
       of: [
         {
           type: "object",
@@ -279,6 +252,68 @@ export const about = defineType({
           },
         },
       ],
+    }),
+    defineField({ name: "vision", title: "Vision", type: "text", rows: 8, group: "identity" }),
+    defineField({ name: "mission", title: "Mission", type: "text", rows: 8, group: "identity" }),
+    defineField({
+      name: "values",
+      title: "Valeurs",
+      type: "array",
+      group: "identity",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "title", type: "string", title: "Titre" },
+            { name: "text", type: "text", title: "Texte", rows: 3 },
+          ],
+          preview: { select: { title: "title" } },
+        },
+      ],
+    }),
+    defineField({ name: "culture", title: "Culture", type: "text", rows: 5, group: "identity" }),
+    defineField({
+      name: "domains",
+      title: "Domaines d'intervention",
+      type: "array",
+      group: "identity",
+      of: [{ type: "string" }],
+    }),
+    defineField({ name: "history", title: "Historique", type: "text", rows: 10, group: "org" }),
+    defineField({
+      name: "globalObjective",
+      title: "Objectif global",
+      type: "text",
+      rows: 5,
+      group: "org",
+    }),
+    defineField({
+      name: "objectives",
+      title: "Axes / objectifs",
+      type: "array",
+      group: "org",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "zones",
+      title: "Zones d'intervention",
+      type: "text",
+      rows: 4,
+      group: "org",
+    }),
+    defineField({
+      name: "structure",
+      title: "Structure",
+      type: "array",
+      group: "org",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "partners",
+      title: "Partenaires",
+      type: "array",
+      group: "org",
+      of: [{ type: "string" }],
     }),
   ],
 });

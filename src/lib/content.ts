@@ -190,16 +190,20 @@ export async function getOpportuniteBySlug(slug: string): Promise<OpportuniteDet
 
   if (!data) return getFallbackOpportunite(slug) ?? null;
 
+  const fallback = getFallbackOpportunite(slug);
+  const hasBody = Array.isArray(data.body) && data.body.length > 0;
+
   return {
     _id: data._id,
     title: data.title,
     slug: data.slug,
     category: data.category,
-    summary: data.summary || "",
-    location: data.location,
-    publishedAt: data.publishedAt,
-    isOpen: data.isOpen,
-    body: data.body,
+    summary: data.summary || fallback?.summary || "",
+    location: data.location ?? fallback?.location,
+    publishedAt: data.publishedAt ?? fallback?.publishedAt,
+    isOpen: data.isOpen ?? fallback?.isOpen,
+    body: hasBody ? data.body : undefined,
+    bodyText: hasBody ? undefined : fallback?.bodyText,
   };
 }
 

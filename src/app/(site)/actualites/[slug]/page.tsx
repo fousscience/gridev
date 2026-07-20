@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Reveal } from "@/components/motion/Reveal";
 import { RichBody } from "@/components/RichBody";
 import { getActualiteBySlug, getActualites } from "@/lib/content";
 
@@ -25,22 +26,24 @@ export default async function ActualiteDetailPage({ params }: Props) {
   return (
     <article className="section">
       <div className="container max-w-3xl">
-        <time className="text-sm text-[var(--brand-muted)]" dateTime={item.publishedAt}>
-          {item.publishedAt
-            ? new Date(item.publishedAt).toLocaleDateString("fr-FR", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-            : null}
-        </time>
-        <h1 className="font-display mt-3 text-4xl font-semibold text-[var(--brand-indigo)] md:text-5xl">
-          {item.title}
-        </h1>
-        {item.excerpt ? <p className="mt-4 text-lg text-[var(--brand-muted)]">{item.excerpt}</p> : null}
-        <div className="mt-10">
+        <Reveal>
+          <time className="text-sm text-[var(--brand-muted)]" dateTime={item.publishedAt}>
+            {item.publishedAt
+              ? new Date(item.publishedAt).toLocaleDateString("fr-FR", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              : null}
+          </time>
+          <h1 className="font-display mt-3 text-4xl font-semibold text-[var(--brand-indigo)] md:text-5xl">
+            {item.title}
+          </h1>
+          {item.excerpt ? <p className="mt-4 text-lg text-[var(--brand-muted)]">{item.excerpt}</p> : null}
+        </Reveal>
+        <Reveal delay={0.12} className="mt-10">
           <RichBody body={item.body} bodyText={item.bodyText} />
-        </div>
+        </Reveal>
       </div>
     </article>
   );

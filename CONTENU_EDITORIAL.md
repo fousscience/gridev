@@ -41,7 +41,7 @@ GRIDév fait cause commune avec les populations pauvres, vulnérables et privée
 
 ## Valeurs fondamentales
 
-1. Les populations sont les principaux acteurs de leur survie et de leur développement.  
+1. **Leadership local** — Nous plaçons les communautés au cœur de l’action et renforçons leur capacité à conduire leur propre développement.  
 2. Justice sociale et égalité, en particulier pour les populations pauvres et marginalisées.  
 3. Partenariat avec les communautés et alliances avec d’autres organisations.  
 4. Prévention et résolution des conflits — la justice sociale et l’égalité fondent une paix véritable et durable.  

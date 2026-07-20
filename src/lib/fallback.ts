@@ -30,8 +30,8 @@ export const fallbackAbout: AboutContent = {
     "Fournir des services de haute qualité aux communautés avec lesquelles nous travaillons, en répondant à leurs besoins et en dépassant leurs attentes, et promouvoir le développement durable à l’échelle nationale et continentale par une approche d’intervention claire : lutter contre la pauvreté par le renforcement du leadership local, la gestion et la valorisation des ressources existantes au plan local, de façon participative et inclusive. GRIDév fait cause commune avec les populations pauvres, vulnérables et privées de leurs droits, en vue de la justice sociale et du développement, en s’appuyant sur des organisations de citoyens établies au niveau local.",
   values: [
     {
-      title: "Acteurs locaux",
-      text: "Les populations sont les principaux acteurs de leur survie et de leur développement.",
+      title: "Leadership local",
+      text: "Nous plaçons les communautés au cœur de l’action et renforçons leur capacité à conduire leur propre développement.",
     },
     {
       title: "Justice sociale",
@@ -162,7 +162,7 @@ export const fallbackOpportunites: OpportuniteDetail[] = [
     publishedAt: "2024-10-01",
     isOpen: true,
     bodyText:
-      "Profil recherché : expérience en suivi-évaluation de projets de développement ou humanitaires, maîtrise des outils de collecte, excellent français. Poste basé à Gao avec déplacements terrain. Envoyez votre CV et lettre de motivation via le formulaire de contact (sujet : candidature suivi-évaluation).",
+      "Missions principales\n\n- Concevoir et mettre en œuvre les plans de suivi-évaluation des projets santé et nutrition\n- Collecter, analyser et restituer les données auprès des équipes et partenaires\n- Appuyer la capitalisation des bonnes pratiques et rédiger les rapports d’avancement\n\nProfil recherché\n\n- Expérience en suivi-évaluation de projets de développement ou humanitaires\n- Maîtrise des outils de collecte de données et rédaction de rapports\n- Excellent français ; connaissance du contexte local du nord du Mali appréciée\n\nConditions\n\n- Poste basé à Gao avec déplacements terrain\n- Contrat selon profil et disponibilité des financements",
   },
   {
     _id: "seed-opp-collab-1",
